@@ -1,0 +1,36 @@
+﻿@model List<ClienteModel>
+@{
+}
+
+<h2>Lista Clientes</h2>
+<a asp-controller="Cliente" asp-action="InsertCliente" class="btn btn-info">Agregar</a>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Eliminar</th>
+            <th>Editar</th>
+            <th>Id Cliente</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Fecha Nacimiento</th>
+            <th>¿Mayor Edad?</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach(ClienteModel item in Model)
+            {
+                <tr>
+                    <td><a asp-controller="Cliente" asp-action="DeleteCliente" class="btn btn-danger" asp-route-IdCliente="@item.IdCliente">Eliminar</a></td>
+                    <td><a asp-controller="Cliente" asp-action="UpdateCliente" class="btn btn-info" asp-route-IdCliente="@item.IdCliente">Editar</a></td>
+                    <td>@item.IdCliente</td>
+                    <td>@item.Nombre</td>
+                    <td>@item.Edad</td>
+                    <td>@item.FechaNacimiento</td>
+                    <td>@(item.MayorEdad ? "Si" : "No")</td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>

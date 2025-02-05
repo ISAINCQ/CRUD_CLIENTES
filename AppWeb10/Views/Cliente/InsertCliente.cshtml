@@ -1,0 +1,26 @@
+﻿@model ClienteModel
+@{
+}
+
+<h2>Agregar Cliente</h2>
+
+<form asp-action="InsertCliente" asp-controller="Cliente" method="post">
+    <input type="hidden" asp-for="IdCliente" id="IdCliente" />
+    <div>
+        <label class="form-label" for="Nombre">Nombre</label>
+        <input class="form-control" type="text" asp-for="Nombre" id="Nombre" placeholder="Escriba Nombre del Cliente" />
+    </div>
+    <div>
+        <label class="form-label" for="Edad">Edad</label>
+        <input class="form-control" type="text" asp-for="Edad" id="Edad" placeholder="Ingrese Edad del Cliente" />
+    </div>
+    <div>
+        <label class="form-label" for="FechaNacimiento">FechaNacimiento</label>
+        <input class="form-control" type="date" asp-for="FechaNacimiento" id="FechaNacimiento" />
+    </div>
+    <div>
+        <input type="checkbox" asp-for="MayorEdad" id="MayorEdad" />
+        <label class="form-label" for="MayorEdad">MayorEdad</label>
+    </div>
+    <button class="btn btn-primary" type="submit">Enviar</button>
+</form>
